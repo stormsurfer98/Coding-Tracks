@@ -1,0 +1,16 @@
+h1, h4, div, p {
+	font-family: "Raleway";
+}
+
+h1 {
+	font-weight: 800;
+	text-shadow: 1px 1px #ff0000;
+}
+
+h4 {
+	font-weight: 400;
+}
+
+span {
+	font-weight: 600;
+}

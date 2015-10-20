@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+	<html>
+		<head>
+			<title>Coding Tracks</title>
+			<link href='https://fonts.googleapis.com/css?family=Raleway:400,800,600' rel='stylesheet' type='text/css'>
+			<link rel="stylesheet" type="text/css" href="css/main.css"/>
+		</head>
+
+		<body bgcolor="#D3D3D3">
+			<span id="header">
+				<p align="right"><a href="../index.html">Home</a></p>
+				<center>
+					<h1 id="start">Coding Tracks</h1>
+					<h4><em>Hand-picked resources for all types of programmers!</em></h4>
+				</center>
+			</span>
+
+			<div style="width: 40%; margin: 0 auto;">
+				<form>
+					<span>Full name</span><br>
+					<input type="text" id="name" name="name" placeholder="John Doe" style="width: 500px; height: 15px; border-radius: 3px;" autofocus required autocomplete="on"><br><br>
+					<span>Email address</span><br>
+					<input type="text" id="email" name="email" placeholder="example@domain.com" style="width: 500px; height: 15px; border-radius: 3px;" required autocomplete="on"><br><br>
+					<span>Mobile phone (optional)</span><br>
+					<input type="text" id="mobile" name="mobile" placeholder="(800)-123-4567" style="width: 500px; height: 15px; border-radius: 3px;" autocomplete="on" onblur="checkFields()"><br><br>
+					<span>Birthday (optional): </span>
+					<select name="birthday" id="birthday">
+						<option value="default">Month</option>
+						<option value="january">January</option>
+						<option value="february">February</option>
+						<option value="march">March</option>
+						<option value="april">April</option>
+						<option value="may">May</option>
+						<option value="june">June</option>
+						<option value="july">July</option>
+						<option value="august">August</option>
+						<option value="september">September</option>
+						<option value="october">October</option>
+						<option value="november">November</option>
+						<option value="december">December</option>
+					</select>
+					<select name="day" id="day">
+						<option value="default">Day</option>
+					</select>
+					<select name="year" id="year">
+						<option value="default">Year</option>
+					</select><br><br>
+					<span>Gender (optional): </span>
+					<select name="gender" id="gender">
+						<option value="default">Select</option>
+						<option value="male">Male</option>
+						<option value="female">Female</option>
+					</select><br><br>
+					<span>Development field: </span><br>
+					<div>
+						<input type="radio" id="web" name="branch" onclick="updateLanguages()">Web Development<br>
+						<input type="radio" id="mobile" name="branch" onclick="updateLanguages()">Mobile Development<br>
+						<input type="radio" id="other" name="branch" onclick="updateLanguages()">Other<br><br>
+					</div>
+					<span>Coding track: </span>
+					<select value="lang" id="lang" style="width: 125px;">
+						<option value="Select">Select</option>
+					</select><br><br>
+					<center>
+						I would like to receive special offers via email: <input type="checkbox" name="vehicle" value="Bike" checked>Yes!<br><br>
+						<input type="button" value="Discover track!" onclick="submitForm()">
+					</center>
+				</form>
+			</div>
+
+			<script src="js/main.js"></script>
+		</body>
+	</html>
