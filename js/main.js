@@ -59,11 +59,11 @@ function updateLanguages() {
 		select.remove(0);
 	}
 	var options = [];
-	if(document.getElementById("web").checked) {
+	if(document.getElementById("web-dev").checked) {
 		options = ["Select", "HTML/CSS", "JavaScript", "Ruby on Rails", "Node.js", "Django", "PHP"];
-	} else if(document.getElementById("mobile").checked) {
+	} else if(document.getElementById("mobile-dev").checked) {
 		options = ["Select", "iOS", "Android", "Ionic", "Corona Labs"];
-	} else {
+	} else if(document.getElementById("other").checked) {
 		options = ["Select", "Git/GitHub", "Debugging Tools"];
 	}
 	for(var i=0; i<options.length; i++) {
