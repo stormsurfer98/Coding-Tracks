@@ -74,6 +74,11 @@ function updateLanguages() {
 	}
 }
 
+function removeSelect() {
+	var select = document.getElementById("lang");
+	if(select.options[0].value == "Select") select.remove[0];
+}
+
 function addOptions() {
 	for(var i=1; i<=31; i++) {
 		var option = document.createElement("option");
