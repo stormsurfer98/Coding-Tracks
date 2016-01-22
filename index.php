@@ -16,13 +16,36 @@
 			</span>
 
 			<div style="width: 40%; margin: 0 auto;">
-				<form>
+				<?php
+					$db = new SQLite3('my_database') or die('Unable to open database');
+					$query = "CREATE TABLE IF NOT EXISTS information(name STRING PRIMARY KEY, email STRING, mobile STRING)";
+					$db->exec($query) or die('Database creation failed.');
+
+					$name = $email = $mobile = '';
+					if($_SERVER['REQUEST_METHOD'] == 'POST') {
+						$name = $_POST['name'];
+						$email = $_POST['email'];
+						$mobile = $_POST['mobile'];
+
+						$query = "DELETE FROM information; INSERT INTO information VALUES('$name', '$email', '$mobile');";
+						$db->exec($query) or die('Unable to update information.');
+					} else {
+						$result = $db->query('SELECT * FROM information') or die('Query failed.');
+						while($row = $result->fetchArray()) {
+							$name = $row['name'];
+							$email = $row['email'];
+							$mobile = $row['mobile'];
+						}
+					}
+				?>
+				
+				<form method="post" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']);?>">
 					<span>Full name</span><br>
-					<input type="text" id="name" name="name" placeholder="John Doe" style="width: 500px; height: 15px; border-radius: 3px;" autofocus required autocomplete="on"><br><br>
+					<input type="text" id="name" name="name" value="<?php echo $name;?>" style="width: 500px; height: 15px; border-radius: 3px;" autofocus required ><br><br>
 					<span>Email address</span><br>
-					<input type="text" id="email" name="email" placeholder="example@domain.com" style="width: 500px; height: 15px; border-radius: 3px;" required autocomplete="on"><br><br>
+					<input type="text" id="email" name="email" value="<?php echo $email;?>" style="width: 500px; height: 15px; border-radius: 3px;" required><br><br>
 					<span>Mobile phone (optional)</span><br>
-					<input type="text" id="mobile" name="mobile" placeholder="(800)-123-4567" style="width: 500px; height: 15px; border-radius: 3px;" autocomplete="on" onblur="checkFields()"><br><br>
+					<input type="text" id="mobile" name="mobile" value="<?php echo $mobile;?>" style="width: 500px; height: 15px; border-radius: 3px;" onblur="checkFields()"><br><br>
 					<span>Birthday (optional): </span>
 					<select name="birthday" id="birthday">
 						<option value="default">Month</option>
